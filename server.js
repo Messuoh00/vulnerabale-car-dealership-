@@ -1,13 +1,22 @@
 const express= require('express')
-
+const  mongodb = require('mongoose')
 const app = express()
+
+mongodb.connect('mongodb://localhost/carwebsite' )
+
+const db=mongodb.connection
+
+db.on('error',(error) => console.log('error in db '))
+db.on('open',() => console.log('db connected'))
+
+
+
 
 app.set('view engine','ejs')
 
-app.use(express.static("public"))
-
-
 app.use(express.urlencoded({extended:true}))
+
+
 
 app.get('/',(req,res)=>{
  console.log('works')   
@@ -15,11 +24,9 @@ app.get('/',(req,res)=>{
 
 })
 
+const userroute=require('./routes/user.js') 
 
-
-const userroute=require('./routes/users.js') 
-
-app.use('/users',userroute)
-
+app.use('/user',userroute)
+app.use(express.static("public"))
 app.listen(3000)
 

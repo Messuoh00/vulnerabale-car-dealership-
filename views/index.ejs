@@ -2,6 +2,19 @@
 <html class="no-js" lang="en">
 
     <head>
+		<style>
+			/* Basic styling for the textarea */
+			textarea {
+				background-color: #26294D;
+				width: 100%;
+				height: 300px; /* Adjust the height as needed */
+				padding: 10px;
+				font-size: 16px;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				resize: vertical; /* Allow vertical resizing */
+			}
+		</style>
         <!-- meta data -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -85,18 +98,27 @@
 
 				            <!-- Collect the nav links, forms, and other content for toggling -->
 				            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+								
 				                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-				                    <li class=" scroll active"><a href="#home">home</a></li>
-				                    <li class="scroll"><a href="#service">service</a></li>
-				                    <li class="scroll"><a href="#featured-cars">featured cars</a></li>
-				                    <li class="scroll"><a href="#new-cars">new cars</a></li>
+									
+				                    <li class=" scroll active"><a href="#home">home</a></li> 
+				                    <li class="scroll"><a href="#featured-cars">new cars</a></li>
 				                    <li class="scroll"><a href="#brand">brands</a></li>
 				                    <li class="scroll"><a href="#contact">contact</a></li>
-									<li class="scroll">	<a href="#contact">log in</a></li>
+
+									<li><a href="/user/login"style="float: right;">  log in </a></li>
+									<li><a href="/user/signup"style="float: right;">  sign up </a></li>
+									
 				                </ul><!--/.nav -->
+								
 				            </div><!-- /.navbar-collapse -->
+							
 				        </div><!--/.container-->
+						
+						
+						
 				    </nav><!--/nav-->
+					
 				    <!-- End Navigation -->
 				</div><!--/.header-area-->
 			    <div class="clearfix"></div>
@@ -230,143 +252,8 @@
 
 		</section><!--/.welcome-hero-->
 		<!--welcome-hero end -->
-
-		<!--service start -->
-		<section id="service" class="service">
-			<div class="container">
-				<div class="service-content">
-					<div class="row">
-						<div class="col-md-4 col-sm-6">
-							<div class="single-service-item">
-								<div class="single-service-icon">
-									<i class="flaticon-car"></i>
-								</div>
-								<h2><a href="#">largest dealership <span> of</span> car</a></h2>
-								<p>
-									Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia.  
-								</p>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<div class="single-service-item">
-								<div class="single-service-icon">
-									<i class="flaticon-car-repair"></i>
-								</div>
-								<h2><a href="#">unlimited repair warrenty</a></h2>
-								<p>
-									Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia.  
-								</p>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<div class="single-service-item">
-								<div class="single-service-icon">
-									<i class="flaticon-car-1"></i>
-								</div>
-								<h2><a href="#">insurence support</a></h2>
-								<p>
-									Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia. 
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div><!--/.container-->
-
-		</section><!--/.service-->
-		<!--service end-->
-
-		<!--new-cars start -->
-		<section id="new-cars" class="new-cars">
-			<div class="container">
-				<div class="section-header">
-					<p>checkout <span>the</span> latest cars</p>
-					<h2>newest cars</h2>
-				</div><!--/.section-header-->
-				<div class="new-cars-content">
-					<div class="owl-carousel owl-theme" id="new-cars-carousel">
-						<div class="new-cars-item">
-							<div class="single-new-cars-item">
-								<div class="row">
-									<div class="col-md-7 col-sm-12">
-										<div class="new-cars-img">
-											<img src="assets/images/new-cars-model/ncm1.png" alt="img"/>
-										</div><!--/.new-cars-img-->
-									</div>
-									<div class="col-md-5 col-sm-12">
-										<div class="new-cars-txt">
-											<h2><a href="#">chevrolet camaro <span> za100</span></a></h2>
-											<p>
-												Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-											</p>
-											<p class="new-cars-para2">
-												Sed ut pers unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. 
-											</p>
-											<button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">
-												view details
-											</button>
-										</div><!--/.new-cars-txt-->	
-									</div><!--/.col-->
-								</div><!--/.row-->
-							</div><!--/.single-new-cars-item-->
-						</div><!--/.new-cars-item-->
-						<div class="new-cars-item">
-							<div class="single-new-cars-item">
-								<div class="row">
-									<div class="col-md-7 col-sm-12">
-										<div class="new-cars-img">
-											<img src="assets/images/new-cars-model/ncm2.png" alt="img"/>
-										</div><!--/.new-cars-img-->
-									</div>
-									<div class="col-md-5 col-sm-12">
-										<div class="new-cars-txt">
-											<h2><a href="#">BMW series-3 wagon</a></h2>
-											<p>
-												Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-											</p>
-											<p class="new-cars-para2">
-												Sed ut pers unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. 
-											</p>
-											<button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">
-												view details
-											</button>
-										</div><!--/.new-cars-txt-->	
-									</div><!--/.col-->
-								</div><!--/.row-->	
-							</div><!--/.single-new-cars-item-->
-						</div><!--/.new-cars-item-->
-						<div class="new-cars-item">
-							<div class="single-new-cars-item">
-								<div class="row">
-									<div class="col-md-7 col-sm-12">
-										<div class="new-cars-img">
-											<img src="assets/images/new-cars-model/ncm3.png" alt="img"/>
-										</div><!--/.new-cars-img-->
-									</div>
-									<div class="col-md-5 col-sm-12">
-										<div class="new-cars-txt">
-											<h2><a href="#">ferrari 488 superfast</a></h2>
-											<p>
-												Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-											</p>
-											<p class="new-cars-para2">
-												Sed ut pers unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. 
-											</p>
-											<button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">
-												view details
-											</button>
-										</div><!--/.new-cars-txt-->	
-									</div><!--/.col-->
-								</div><!--/.row-->
-							</div><!--/.single-new-cars-item-->
-						</div><!--/.new-cars-item-->
-					</div><!--/#new-cars-carousel-->
-				</div><!--/.new-cars-content-->
-			</div><!--/.container-->
-
-		</section><!--/.new-cars-->
-		<!--new-cars end -->
-
+	
+	  
 		<!--featured-cars start -->
 		<section id="featured-cars" class="featured-cars">
 			<div class="container">
@@ -649,8 +536,12 @@
 				</div><!--/.row-->
 			</div><!--/.container-->
 
+
 		</section><!--/.clients-say-->	
 		<!-- clients-say end -->
+
+		
+
 
 		<!--brand strat -->
 		<section id="brand"  class="brand">
@@ -720,55 +611,27 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-2 col-sm-6">
+						 
+						 
+						<div class="col-md-offset-1 col-md-9 col-sm-6">
 							<div class="single-footer-widget">
-								<h2>about devloon</h2>
-								<ul>
-									<li><a href="#">about us</a></li>
-									<li><a href="#">career</a></li>
-									<li><a href="#">terms <span> of service</span></a></li>
-									<li><a href="#">privacy policy</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-3 col-xs-12">
-							<div class="single-footer-widget">
-								<h2>top brands</h2>
-								<div class="row">
-									<div class="col-md-7 col-xs-6">
-										<ul>
-											<li><a href="#">BMW</a></li>
-											<li><a href="#">lamborghini</a></li>
-											<li><a href="#">camaro</a></li>
-											<li><a href="#">audi</a></li>
-											<li><a href="#">infiniti</a></li>
-											<li><a href="#">nissan</a></li>
-										</ul>
-									</div>
-									<div class="col-md-5 col-xs-6">
-										<ul>
-											<li><a href="#">ferrari</a></li>
-											<li><a href="#">porsche</a></li>
-											<li><a href="#">land rover</a></li>
-											<li><a href="#">aston martin</a></li>
-											<li><a href="#">mersedes</a></li>
-											<li><a href="#">opel</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-offset-1 col-md-3 col-sm-6">
-							<div class="single-footer-widget">
-								<h2>news letter</h2>
+								<h2>contact us</h2>
 								<div class="footer-newsletter">
 									<p>
-										Subscribe to get latest news  update and informations
+										add your email to contact
 									</p>
 								</div>
 								<div class="hm-foot-email">
 									<div class="foot-email-box">
-										<input type="text" class="form-control" placeholder="Add Email">
+										
+										
+										<form action="/send-email" method="POST">
+											<input type="text" class="form-control" placeholder="Add Email">
+											<br>
+											<textarea name="emailContent" id="emailContent" placeholder="Write your email here..."></textarea> 
+											<button type="submit" class="welcome-btn">Send Email</button>
+										</form>
+										
 									</div><!--/.foot-email-box-->
 									<div class="foot-email-subscribe">
 										<span><i class="fa fa-arrow-right"></i></span>

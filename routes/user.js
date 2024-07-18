@@ -2,22 +2,29 @@ const express= require("express")
 
 const router =express.Router()
 
+router.use(express.static("public"))
 
-router.get("/",(req,res)=>{
+router.get("/login",(req,res)=>{
 
-    res.send("you are a user hoho")
+    res.render("login")
+
+})
+
+router.get("/signup",(req,res)=>{
+
+    
+    res.render("signup")
 
 })
 
-router.get("/new",(req,res)=>{
 
-    res.send("you are a NEW user hoho")
 
-})
 
 
 router.route("/:id").get((req,res)=>{
-        res.send(`this is user ${req.params.id}`)
+         
+    res.render("userpage")
+
     
     }).put( (req,res)=>{
         res.send(`update user ${req.params.id}`)
@@ -28,9 +35,6 @@ router.route("/:id").get((req,res)=>{
 
  
 
-router.param("id",(req,res,next,id)=>{
-    req.user=user[id]
-    next()
-})
+
 
 module.exports = router
