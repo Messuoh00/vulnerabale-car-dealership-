@@ -1,32 +1,49 @@
 const express= require("express")
 const router =express.Router()
+
+
+const Userdb= require('../models/userschema')
+
 router.use(express.static("public"))
 
 
 router.get("/login",(req,res)=>{
 
+
     res.render("login")
 
 })
 
-router.get("/signup",(req,res)=>{
+
+
+
+router.get("/signup", (req,res)=>{
 
     
     res.render("signup")
    
 
-}).post("/signup",(req,res)=>{
+}).post("/signup", async (req,res)=>{
 
-     console.log("hey")
-        const data ={
-            name: req.body.email,
-            password: req.body.password
-        }
+    console.log(req.body)
+   
+    const user = new  Userdb ({
+        email: req.body.email,
+        password: req.body.password
+    })
 
-       
-        console.log(data)
 
-        res.render("signup")
+ 
+ try {
+
+    const newuser= await user.save()
+    res.status(201).json(newuser)
+
+    
+} catch (error) {
+    res.status(400).json({message: error.message})
+}
+    
 
 })
 
@@ -35,9 +52,19 @@ router.get("/signup",(req,res)=>{
 
 
 
-router.route("/:id").get((req,res)=>{
+router.route("/:id").get(async (req,res)=>{
          
-    res.render("userpage")
+    try {
+
+       const users = await Userdb.find()
+
+        res.json(users)
+        
+         
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+        
 
     
     }).put( (req,res)=>{
