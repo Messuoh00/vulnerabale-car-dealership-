@@ -1,7 +1,6 @@
 require('dotenv').config()
 
 const express= require('express')
-
 const app = express()
 
 const  mongodb = require('mongoose')
@@ -31,6 +30,12 @@ app.get('/',(req,res)=>{
 }
 )
 
+
+
+
+function  checkauth (req,res,next){
+    
+}
 
 
 const userroute=require('./routes/user.js') 
