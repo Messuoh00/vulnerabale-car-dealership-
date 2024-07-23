@@ -30,17 +30,14 @@ app.get('/',(req,res)=>{
 }
 )
 
-
-
-
-function  checkauth (req,res,next){
-    
-}
-
-
+  
 const userroute=require('./routes/user.js') 
-
 app.use('/user',userroute)
+
+
+const carsroute=require('./routes/cars.js') 
+app.use('/cars',carsroute)
+
 
 
 app.listen(3000)

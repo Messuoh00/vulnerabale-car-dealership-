@@ -26,3 +26,20 @@ Content-Type: application/json
 
 }
 
+###
+
+POST  http://localhost:3000/cars/newcar
+Content-Type: application/json
+
+{
+        "contact":"user url",
+        "make":"make ",
+        "model": "model", 
+        "year": 1920,
+        "AOM":"MANUAL",
+        "mileage": 20,
+        "price": 2025,
+        "description":"you know its a car" 
+
+}
+
