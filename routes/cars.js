@@ -6,6 +6,22 @@ const Cardb= require('../models/carschema')
 router.use(express.static("public"))
 
 
+const multer = require('multer');
+const path = require('path');
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/carimage/'); // Directory to save uploaded files
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname)); // Save file with a unique name
+    }
+});
+
+const upload = multer({ storage: storage });
+
+
+
 
 router.get("/",async(req,res)=>{
 
@@ -32,11 +48,14 @@ router.get("/newcar",(req,res)=>{
     res.render("carcreation")
 
 
-}).post("/newcar",async(req,res)=>{
+}).post("/newcar", upload.array('images', 10),async(req,res)=>{
 
 
     
  try {
+
+    const images = req.files.map(file => `/${file.filename}`);
+
     const car = new  Cardb ({
         contact:req.body.contact,
         make:req.body.make,
@@ -45,7 +64,8 @@ router.get("/newcar",(req,res)=>{
         price: req.body.price,
         description: req.body.description,
         mileage:req.body.mileage,
-        AOM:req.body.AOM
+        AOM:req.body.AOM,
+        images:images
     })
 
     console.log(car)

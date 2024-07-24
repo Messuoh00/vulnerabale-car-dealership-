@@ -14,6 +14,28 @@
 				border-radius: 4px;
 				resize: vertical; /* Allow vertical resizing */
 			}
+
+			.featured-cars-img img {
+				width: 100%;
+				height: auto;
+				object-fit: cover; /* This ensures the image covers the box while maintaining aspect ratio */
+			}
+			
+			.single-featured-cars {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				height: 100%;
+			}
+			
+		
+			.featured-cars-img {
+				width: 100%;
+				height: 200px; /* Adjust the height as needed */
+				overflow: hidden;
+			}
+			
+
 		</style>
         <!-- meta data -->
         <meta charset="utf-8">
@@ -253,59 +275,55 @@
 		<!--welcome-hero end -->
 	
 	  
-		<!--featured-cars start -->
-		<section id="featured-cars" class="featured-cars">
-			<div class="container">
-				<div class="section-header">
-					<p>checkout <span>the</span> featured cars</p>
-					<h2>featured cars</h2>
-				</div><!--/.section-header-->
-				<div class="featured-cars-content">
-				
-				
-					<% cars.forEach((car, index) => { %>
-						<% if (index % 4 === 0) { %>
-							<div class="row">
-						<% } %>
-								<div class="col-lg-3 col-md-4 col-sm-6">
-									<div class="single-featured-cars">
-										<div class="featured-img-box">
-											<div class="featured-cars-img">
-												<img src="<%= car.images[0] || 'assets/images/default-car.png' %>" alt="car image">
-											</div>
-											<div class="featured-model-info">
-												<p>
-													model: <%= car.model %>
-													<!-- Placeholder for mileage and horsepower -->
-													<span class="featured-mi-span"><%=car.mileage %> Km</span> 
-													 
-													type:	<%= car.AOM %>
-												</p>
-											</div>
-										</div>
-										<div class="featured-cars-txt">
-											<h2><a href="#"><%= car.contact %> <span><%= car.make %></span></a></h2>
-											<h3>$<%= car.price %></h3>
-											<p>
-												<%= car.description || 'No description available.' %>
-											</p>
-										</div>
-									</div>
-								</div>
-						<% if ((index + 1) % 4 === 0) { %>
-							</div>
-						<% } %>
-					<% }); %>
-
-
-
-					
-				</div>
-			</div><!--/.container-->
-
-		</section><!--/.featured-cars-->
-		<!--featured-cars end -->
-
+<!--featured-cars start -->
+<section id="featured-cars" class="featured-cars">
+    <div class="container">
+        <div class="section-header">
+            <p>checkout <span>the</span> featured cars</p>
+            <h2>featured cars</h2>
+        </div><!--/.section-header-->
+        <div class="featured-cars-content">
+            <% cars.forEach((car, index) => { %>
+                <% if (index % 4 === 0) { %>
+                    <div class="row">
+                <% } %>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="single-featured-cars">
+                                <div class="featured-img-box">
+                                    <div class="featured-cars-img">
+                                        <img src="carimage<%=car.images[0]%>" alt="car image">
+									
+                                    </div>
+									
+                                    <div class="featured-model-info">
+                                        <p>
+                                            model: <%= car.model %>
+                                            <!-- Placeholder for mileage and horsepower -->
+                                            <span class="featured-mi-span"><%=car.mileage || 'N/A' %> Km</span> 
+                                            type: <%= car.AOM || 'N/A' %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="featured-cars-txt">
+                                    <h2><a href="#"><%= car.contact %> <span><%= car.make %></span></a></h2>
+                                    <h3>$<%= car.price %></h3>
+                                    <p>
+                                        <%= car.description || 'No description available.' %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                <% if ((index + 1) % 4 === 0) { %>
+                    </div>
+                <% } %>
+            <% }); %>
+            <% if (cars.length % 4 !== 0) { %>
+                </div>
+            <% } %>
+        </div>
+    </div><!--/.container-->
+</section><!--/.featured-cars-->
+<!--featured-cars end -->
 
 		
 		<!-- Include all js compiled plugins (below), or include individual files as needed -->

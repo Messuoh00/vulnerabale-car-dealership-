@@ -138,7 +138,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <form action="newcar" method="post"  >
+                        <form action="newcar" method="post" enctype="multipart/form-data"  >
                             <div class="model-search-content">
                                 <div class="row">
                                     <div class="col-md-offset-1 col-md-2 col-sm-12">
@@ -208,6 +208,12 @@
                                             <h2>mileage</h2>
                                             <input type="number" name="mileage" class="form-control" min="0" required>
                                         </div>
+
+                                        <div class="single-model-search">
+                                            <h2>Images</h2>
+                                            <input type="file" name="images" class="form-control" multiple>
+                                        </div>
+
                                         <div class="single-model-search text-center">
                                             <button type="submit" class="welcome-btn model-search-btn">
                                                 Create
