@@ -1,0 +1,39 @@
+<div class="featured-cars-content">
+    <% cars.forEach((car, index) => { %>
+        <% if (index % 4 === 0) { %>
+            <div class="row">
+        <% } %>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="single-featured-cars">
+                        <div class="featured-img-box">
+                            <div class="featured-cars-img">
+                                <img src="carimage<%=car.images[0]%>" alt="car image">
+                            
+                            </div>
+                            
+                            <div class="featured-model-info">
+                                <p>
+                                    model: <%= car.model %>
+                                    <!-- Placeholder for mileage and horsepower -->
+                                    <span class="featured-mi-span"><%=car.mileage || 'N/A' %> Km</span> 
+                                    type: <%= car.AOM || 'N/A' %>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="featured-cars-txt">
+                            <h2><a href="#"><%= car.contact %> <span><%= car.make %></span></a></h2>
+                            <h3>$<%= car.price %></h3>
+                            <p>
+                                <%= car.description || 'No description available.' %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        <% if ((index + 1) % 4 === 0) { %>
+            </div>
+        <% } %>
+    <% }); %>
+    <% if (cars.length % 4 !== 0) { %>
+        </div>
+    <% } %>
+</div>

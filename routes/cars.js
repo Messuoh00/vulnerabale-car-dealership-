@@ -8,6 +8,7 @@ router.use(express.static("public"))
 
 const multer = require('multer');
 const path = require('path');
+const { Store } = require("express-session");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -24,7 +25,8 @@ const upload = multer({ storage: storage });
 
 
 router.get("/",async(req,res)=>{
-
+    
+   
 
     try {
 
@@ -43,12 +45,12 @@ router.get("/",async(req,res)=>{
 
 
 
-router.get("/newcar",(req,res)=>{
+router.get("/newcar", isAuthenticated, (req,res)=>{
 
     res.render("carcreation")
 
 
-}).post("/newcar", upload.array('images', 10),async(req,res)=>{
+}).post("/newcar",isAuthenticated, upload.array('images', 10),async(req,res)=>{
 
 
     
@@ -57,7 +59,7 @@ router.get("/newcar",(req,res)=>{
     const images = req.files.map(file => `/${file.filename}`);
 
     const car = new  Cardb ({
-        contact:req.body.contact,
+        contact:req.session.user,
         make:req.body.make,
         model: req.body.model, 
         year: req.body.year,
@@ -82,6 +84,18 @@ router.get("/newcar",(req,res)=>{
 
 
 })
+
+
+
+
+
+function isAuthenticated(req, res, next) {
+    if (req.session.authenticated) {
+        return next();
+    } else {
+        res.redirect('/user/login');
+    }
+}
 
 
 

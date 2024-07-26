@@ -78,52 +78,9 @@
 		<!--welcome-hero start -->
 		<section id="home" class="welcome-hero">
 
-			<!-- top-area Start -->
-			<div class="top-area">
-				<div class="header-area">
-					<!-- Start Navigation -->
-				    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+		
+            <%- include('partials/menu') %>																
 
-				        <div class="container">
-
-				            <!-- Start Header Navigation -->
-				            <div class="navbar-header">
-				                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-				                    <i class="fa fa-bars"></i>
-				                </button>
-				                <a class="navbar-brand" href="/">carvilla<span></span></a>
-
-				            </div><!--/.navbar-header-->
-				            <!-- End Header Navigation -->
-
-				            <!-- Collect the nav links, forms, and other content for toggling -->
-				            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
-								
-				                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-									
-				                  
-				                    <li class="scroll"><a href="#featured-cars">new cars</a></li>
-				           
-
-									<li><a href="/user/login"style="float: right;">  log in </a></li>
-									<li><a href="/user/signup"style="float: right;">  sign up </a></li>
-									
-				                </ul><!--/.nav -->
-								
-				            </div><!-- /.navbar-collapse -->
-							
-				        </div><!--/.container-->
-						
-						
-						
-				    </nav><!--/nav-->
-					
-				    <!-- End Navigation -->
-				</div><!--/.header-area-->
-			    <div class="clearfix"></div>
-
-			</div><!-- /.top-area-->
-			<!-- top-area End -->
 
 			<div class="container">
 				<div class="welcome-hero-txt">
@@ -143,8 +100,8 @@
                                 <div class="row">
                                     <div class="col-md-offset-1 col-md-2 col-sm-12">
                                         <div class="single-model-search">
-                                            <h2>Contact</h2>
-                                            <input type="text" name="contact" class="form-control" required>
+                                            <h2>Select Price</h2>
+                                            <input type="number" name="price" class="form-control" min="0" required>
                                         </div>
                                         <div class="single-model-search">
                                             <h2>Select Year</h2>
@@ -159,21 +116,8 @@
                                     </div>
                                     <div class="col-md-offset-1 col-md-2 col-sm-12">
                                         <div class="single-model-search">
-                                            <h2>Select Make</h2>
-                                            <div class="model-select-icon">
-                                                <select name="make" class="form-control" required>
-                                                    <option value="Toyota">Toyota</option>
-                                                    <option value="Honda">Honda</option>
-                                                    <option value="Ford">Ford</option>
-                                                    <option value="BMW">BMW</option>
-                                                    <option value="Mercedes-Benz">Mercedes-Benz</option>
-                                                    <option value="Audi">Audi</option>
-                                                    <option value="Tesla">Tesla</option>
-                                                    <option value="Chevrolet">Chevrolet</option>
-                                                    <option value="Nissan">Nissan</option>
-                                                    <option value="Volkswagen">Volkswagen</option>
-                                                </select>
-                                            </div>
+                                            <h2>mileage</h2>
+                                            <input type="number" name="mileage" class="form-control" min="0" required>
                                         </div>
                                         <div class="single-model-search">
                                             <h2>Select Model</h2>
@@ -194,31 +138,46 @@
                                         </div>
                                     </div>
                                     <div class="col-md-offset-1 col-md-2 col-sm-12">
-                                        <div class="single-model-search">
-                                            <h2>Select Price</h2>
-                                            <input type="number" name="price" class="form-control" min="0" required>
-                                        </div>
-                                        <div class="single-model-search">
-                                            <h2>Description</h2>
-                                            <textarea name="description" class="form-control"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-sm-12">
-                                        <div class="single-model-search">
-                                            <h2>mileage</h2>
-                                            <input type="number" name="mileage" class="form-control" min="0" required>
-                                        </div>
 
                                         <div class="single-model-search">
                                             <h2>Images</h2>
                                             <input type="file" name="images" class="form-control" multiple>
                                         </div>
+                                        <div class="single-model-search">
+                                            <h2>Select Make</h2>
+                                            <div class="model-select-icon">
+                                                <select name="make" class="form-control" required>
+                                                    <option value="Toyota">Toyota</option>
+                                                    <option value="Honda">Honda</option>
+                                                    <option value="Ford">Ford</option>
+                                                    <option value="BMW">BMW</option>
+                                                    <option value="Mercedes-Benz">Mercedes-Benz</option>
+                                                    <option value="Audi">Audi</option>
+                                                    <option value="Tesla">Tesla</option>
+                                                    <option value="Chevrolet">Chevrolet</option>
+                                                    <option value="Nissan">Nissan</option>
+                                                    <option value="Volkswagen">Volkswagen</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                             
+                                       
+                                    </div>
+                                    <div class="col-md-2 col-sm-12">
+                                       
+                                        <div class="single-model-search">
+                                            <h2>Description</h2>
+                                            <textarea name="description" class="form-control"></textarea>
+                                        </div>
+                                    
 
                                         <div class="single-model-search text-center">
                                             <button type="submit" class="welcome-btn model-search-btn">
                                                 Create
                                             </button>
                                         </div>
+
+                                        
                                     </div>
                                 </div>
                             </div>
