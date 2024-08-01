@@ -21,8 +21,10 @@
                             </div>
                         </div>
                         <div class="featured-cars-txt">
-                            <h2><a href="#"><%= car.contact %> <span><%= car.make %></span></a></h2>
-                            <h3>$<%= car.price %></h3>
+                            <h2><a href="/user/<%=car.contact%>">Contact owner</a></h2>
+                            <h2><span><%= car.make %></span></h2>
+
+                            <h1>$<%= car.price %></h1>
                             <p>
                                 <%= car.description || 'No description available.' %>
                             </p>

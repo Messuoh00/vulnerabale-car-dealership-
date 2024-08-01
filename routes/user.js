@@ -10,19 +10,15 @@ router.use(express.static("public"))
 
 router.get("/login",(req,res)=>{
 
-    res.render("login")
+    res.render("login",{message: null})
 
 
 }).post("/login",async (req,res)=>{
 
-    const user= await Userdb.findOne({email:req.body.email})
-
-    if (user==null){
-        return res.status(400).send('no such user')
-    }
-
+     
     try {
-      
+        const user= await Userdb.findOne({email:req.body.email})
+       
         const exist= await bcrypt.compare(req.body.password,user.password)
 
         
@@ -31,55 +27,50 @@ router.get("/login",(req,res)=>{
             if (! req.session.authenticated) {
 
                 req.session.authenticated=true
-                req.session.user={
-                    email:user.email,
-                    id:user.id,
-                }
+                req.session.user=user
             }
             
             res.redirect('me')
 
 
         }else{
-                res.render('login')
+                res.render('login',{message: 'wrong password'})
+               
         }
         
 
-    } catch  {
-        res.status(500).send('wrong')
+    } catch (error) {
+       
+        res.render("login",{message:'user dosent exist'})
     }
     
 })
 
 
 router.get("/signup", (req,res)=>{
-
-    
-    res.render("signup")
+  
+    res.render("signup",{message:null})
    
 
 }).post("/signup", async (req,res)=>{
-
-    
-
-
+ 
  try {
-
-
+ 
     const salt = await bcrypt.genSalt()
     const hashedpassword = await bcrypt.hash(req.body.password, salt)
-
+    
     const user = new  Userdb ({
+        username:req.body.username,
         email: req.body.email,
         password: hashedpassword
     })
-
+    console.log(user)
     const newuser= await user.save()    
-    res.render("login")
+    res.render("login",{message: null})
 
 } catch (error) {
-    res.status(400).json({message: error.message})
-    res.render("signup")
+    
+    res.render("signup",{message: error.message})
 
 }
     
@@ -98,11 +89,12 @@ router.get("/logout", (req, res) => {
 
 
 
-router.route("/me").get(isAuthenticated,async (req,res)=>{
+router.get("/:id",async (req,res)=>{
          
     try {
-        const cars = await Cardb.find();
-        res.render("userpage",{ cars })
+        const cars = await Cardb.find({'contact':req.params.id});
+        console.log(req.params.id)
+        res.render("userpage",{cars})
         
     } catch (error) {
         res.status(500).json({message: error.message})
@@ -110,13 +102,7 @@ router.route("/me").get(isAuthenticated,async (req,res)=>{
         
 
     
-    }).put(isAuthenticated, (req,res)=>{
-        res.send(`update user ${req.params.id}`)
-    
-    }).delete(isAuthenticated, (req,res)=>{
-        res.send(`delete user ${req.params.id}`)
     })
- 
 
 
 

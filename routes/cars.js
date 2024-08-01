@@ -48,7 +48,7 @@ router.get("/",async(req,res)=>{
 router.get("/newcar", isAuthenticated, (req,res)=>{
 
     res.render("carcreation")
-
+    console.log(req.session.user)
 
 }).post("/newcar",isAuthenticated, upload.array('images', 10),async(req,res)=>{
 
@@ -59,7 +59,7 @@ router.get("/newcar", isAuthenticated, (req,res)=>{
     const images = req.files.map(file => `/${file.filename}`);
 
     const car = new  Cardb ({
-        contact:req.session.user,
+        contact:req.session.user._id,
         make:req.body.make,
         model: req.body.model, 
         year: req.body.year,

@@ -28,7 +28,7 @@ app.set('view engine','ejs')
 
 app.use(session({
     secret:'some secret',
-    cookie:{maxAge:30000000},
+    cookie:{maxAge:1000000000},
     saveUninitialized: false,
     resave:false,
 })) 
@@ -52,6 +52,7 @@ db.on('open',() => console.log('db connected'))
 app.get('/',(req,res)=>{
 
     
+    console.log(req.session)
      
  res.render("index")
 
