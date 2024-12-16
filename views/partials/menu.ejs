@@ -29,7 +29,7 @@
 									<li><a href="/user/signup"style="float: right;">  sign up </a></li>
                                     <% }else{  %>
 									<li><a href="/cars/newcar"style="float: right;"> Make add </a></li>
-                                    <li><a href="/user/me"style="float: right;">  My page </a></li>
+                                    <li><a href="/user/<%= session.user._id %>"style="float: right;">  My page </a></li>
 									<li><a href="/user/logout"style="float: right;">   logout </a></li>
                                     <% } %>
 

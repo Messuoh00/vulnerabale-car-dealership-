@@ -30,7 +30,7 @@ router.get("/login",(req,res)=>{
                 req.session.user=user
             }
             
-            res.redirect('me')
+            res.redirect(user._id)
 
 
         }else{
